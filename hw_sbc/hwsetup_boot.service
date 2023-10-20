@@ -1,0 +1,14 @@
+[Unit]
+Description= Custom HW setup at boot
+Before=chrony.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+
+ExecStartPre=/opt/gpstime/hw_sbc/hwsbc_setup.bpi.sh
+ExecStartPre=/opt/gpstime/hw_sbc/hwsbc_rtc.bpi.sh
+ExecStart=/bin/true
+
+[Install]
+WantedBy=multi-user.target

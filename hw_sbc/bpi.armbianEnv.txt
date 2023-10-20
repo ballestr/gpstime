@@ -1,0 +1,19 @@
+## copy to /boot/armbianEnv.txt
+##
+verbosity=1
+console=both
+disp_mode=1280x720p60
+disp_mem_reserves=on
+overlay_prefix=sun7i-a20
+overlays=w1-gpio uart1 spi-spidev spi-add-cs1 pps-gpio
+#fdtfile=sun7i-a20-bananapi-m1-plus.dtb
+fdtfile=sun7i-a20-bananapro.dtb
+## setup DS3231 RTC
+dtoverlay=i2c-rtc,ds3231,wakeup-source
+## pps-gpio config
+# dtoverlay=pps-gpio ## Armbian does not do dtoverlay
+param_pps_pin=PI19
+## kernel non-tickless
+extraargs=nohz=off
+##
+usbstoragequirks=0x2537:0x1066:u,0x2537:0x1068:u

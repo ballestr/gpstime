@@ -1,0 +1,6 @@
+#!/bin/bash
+## daily cron
+## for rtc1 DS3231 not managed by chrony
+(
+hwclock -v --systohc --update-drift --rtc /dev/rtc1 --adjfile=/etc/adjtime.rtc1
+) | logger -t rtc

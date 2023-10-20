@@ -1,0 +1,26 @@
+## https://pypi.org/project/gpsd-prometheus-exporter/
+## https://github.com/markopolo123/gpsd_prometheus_exporter
+
+[Unit]
+Description=Collect HW stats of SBC
+Requires=hwsetup_boot.service
+#Requires=gpsd.service
+#StartLimitIntervalSec=500
+#StartLimitBurst=5
+
+
+[Service]
+Type=simple
+#ExecStart=/bin/bash -c /opt/gpstime/hw_sbc/hwsbc_metrics.sh
+ExecStart=/opt/gpstime/hw_sbc//hwsbc_metrics.py
+
+Restart=on-failure
+RestartSec=15s
+
+CPUWeight=10
+CPUQuota=10%
+IOWeight=10
+MemorySwapMax=0
+
+[Install]
+WantedBy=multi-user.target
