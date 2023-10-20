@@ -1,4 +1,6 @@
 #!/bin/python3
+## RTC metrics exporter
+
 import os
 import sys
 import time

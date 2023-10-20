@@ -1,4 +1,5 @@
 #!/bin/bash
+## setup the two RTC on the Banana PI M1+
 
 if ! [[ -c /dev/rtc1 ]]; then
   echo "## setup RTC ds3231"
@@ -21,17 +22,17 @@ echo -n "rtc1: "; hwclock -r -f /dev/rtc1 --adjfile=/etc/adjtime.rtc1
 echo -n "sys:  "; date "+%Y-%m-%d %H:%M:%S.%N"
 
 function get_epochs {
-rtc0_datetime="$(</sys/class/rtc/rtc0/date) $(</sys/class/rtc/rtc0/time)"
-rtc1_datetime="$(</sys/class/rtc/rtc1/date) $(</sys/class/rtc/rtc1/time)"
-sys_datetime="$(date '+%Y-%m-%d %H:%M:%S')"
-rtc0_epoch=$(date --date "${rtc0_datetime}" +%s)
-rtc1_epoch=$(date --date "${rtc1_datetime}" +%s)
-sys_epoch=$(date --date "${sys_datetime}" +%s)
-fake_epoch=$(date -f /etc/fake-hwclock.data +%s)
-echo "rtc0: $rtc0_epoch"
-echo "rtc1: $rtc1_epoch"
-echo "sys:  $sys_epoch"
-echo "fake: $fake_epoch"
+  rtc0_datetime="$(</sys/class/rtc/rtc0/date) $(</sys/class/rtc/rtc0/time)"
+  rtc1_datetime="$(</sys/class/rtc/rtc1/date) $(</sys/class/rtc/rtc1/time)"
+  sys_datetime="$(date '+%Y-%m-%d %H:%M:%S')"
+  rtc0_epoch=$(date --date "${rtc0_datetime}" +%s)
+  rtc1_epoch=$(date --date "${rtc1_datetime}" +%s)
+  sys_epoch=$(date --date "${sys_datetime}" +%s)
+  fake_epoch=$(date -f /etc/fake-hwclock.data +%s)
+  echo "rtc0: $rtc0_epoch"
+  echo "rtc1: $rtc1_epoch"
+  echo "sys:  $sys_epoch"
+  echo "fake: $fake_epoch"
 }
 
 function rtc1 {

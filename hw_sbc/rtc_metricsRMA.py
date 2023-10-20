@@ -1,4 +1,8 @@
 #!/bin/python3
+## RTC metrics exporter
+## version with Running Moving Average already calculated
+## because excluding samples outside 2 sigma seems impossible to do with Prometheus rules
+
 import os
 import sys
 import time

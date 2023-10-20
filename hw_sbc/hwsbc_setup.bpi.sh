@@ -1,4 +1,7 @@
 #!/bin/bash
+## setup CPU power management on the Banana PI M1+
+## fix the clock to a relatively low value
+## keeps the heat low, which is good for the stability of the RTC oscillators etc
 
 ## LED
 echo "cpu" > /sys/class/leds/bananapro\:green\:usr/trigger

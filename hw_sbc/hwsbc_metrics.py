@@ -1,4 +1,7 @@
 #!/bin/python3
+## complement node HW metrics
+## with things specific to the SBC
+## Version tested with Banana Pro M1+
 
 ## CPU Frequency control
 #echo conservative > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor

@@ -1,5 +1,5 @@
 #!/bin/bash
-## 
+## check HW model and run the specific scripts
 
 compatible="$(</proc/device-tree/compatible)"
 

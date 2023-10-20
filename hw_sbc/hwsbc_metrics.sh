@@ -1,3 +1,5 @@
+#!/bin/dontuseme
+## kept for historical reasons, use the python version instead
 
 ## CPU Frequency control
 #echo conservative > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor

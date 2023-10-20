@@ -4,3 +4,6 @@
 install hwsetup_boot.service              /etc/systemd/system/
 install prometheus-hwsbc-exporter.service /etc/systemd/system/
 install prometheus-rtc-exporter.service   /etc/systemd/system/
+
+systemctl daemon-reload
+systemctl enable --now hwsetup_boot prometheus-hwsbc-exporter prometheus-rtc-exporter
