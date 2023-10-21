@@ -12,7 +12,7 @@ Requires=hwsetup_boot.service
 [Service]
 Type=simple
 #ExecStart=/bin/bash -c /opt/gpstime/hw_sbc/hwsbc_metrics.sh
-ExecStart=/opt/gpstime/hw_sbc//hwsbc_metrics.py
+ExecStart=/opt/gpstime/hw_sbc/hwsbc_metrics.py
 
 Restart=on-failure
 RestartSec=15s
