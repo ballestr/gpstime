@@ -7,3 +7,5 @@ install prometheus-rtc-exporter.service   /etc/systemd/system/
 
 systemctl daemon-reload
 systemctl enable --now hwsetup_boot prometheus-hwsbc-exporter prometheus-rtc-exporter
+
+install -m0755 rtc1_update_drift /etc/cron.daily/
