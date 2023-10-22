@@ -1,0 +1,5 @@
+network={
+	ssid="<your_ssid>"
+	#psk="<cleartext>"
+	psk=<hex_string>
+}

@@ -1,0 +1,12 @@
+#!/bin/bash
+## for crontab
+
+## check wlan0 and restart if needed
+(
+fping 192.168.1.1 && exit
+nmcli general status
+nmcli device connect wlan0
+nmcli general status
+fping 192.168.1.1
+echo "done"
+) | logger -t reconnect
